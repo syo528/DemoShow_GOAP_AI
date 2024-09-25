@@ -346,48 +346,24 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: floatState
+    - Name: stateBase
       Entry: 7
       Data: 0|FloatState, Assembly-CSharp
     - Name: value
       Entry: 4
-      Data: 3.3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
-    - Name: intState
+    - Name: stateComparer
       Entry: 7
-      Data: 1|IntState, Assembly-CSharp
-    - Name: value
+      Data: 1|UnityObjectStateComparer, Assembly-CSharp
+    - Name: symbol
       Entry: 3
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: boolState
-      Entry: 7
-      Data: 2|BoolState, Assembly-CSharp
-    - Name: value
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: unityObjectState
-      Entry: 7
-      Data: 3|UnityObjectState, Assembly-CSharp
+      Data: 1
     - Name: value
       Entry: 6
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: stateBase
-      Entry: 7
-      Data: 4|FloatState, Assembly-CSharp
-    - Name: value
-      Entry: 4
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
