@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Sirenix.OdinInspector;
+using System.Collections.Generic;
 
 public class GOAPStates
 {
@@ -34,4 +35,24 @@ public class GOAPStates
         }
         return false;
     }
+
+#if UNITY_EDITOR
+    [Button]
+    private void CheckStates()
+    {
+        List<GOAPStateType> createTypeList = new List<GOAPStateType>();
+        foreach (KeyValuePair<GOAPStateType, GOAPStateBase> item in stateDic)
+        {
+            // 类型错误
+            if (item.Value == null || item.Value.GetType() != GOAPGlobalConfig.GetStateValueType(item.Key))
+            {
+                createTypeList.Add(item.Key);
+            }
+        }
+        foreach (GOAPStateType item in createTypeList)
+        {
+            stateDic[item] = GOAPGlobalConfig.CopyState(item);
+        }
+    }
+#endif
 }
