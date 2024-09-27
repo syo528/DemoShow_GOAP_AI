@@ -9,8 +9,8 @@ public class GOAPGoals
         [LabelText("目标趋势")] public GOAPStateComparer targetValue;
         [LabelText("优先级系数"), HorizontalGroup("1")] public float priorityMultiply;
         [LabelText("实时优先级"), HorizontalGroup("1")] public float runtimePiority;
+        [LabelText("最终优先级"), ShowInInspector, ReadOnly, HorizontalGroup("1")] public float piority => priorityMultiply * runtimePiority;
         [LabelText("目标检查器")] public IGOAPGoalChecker checker;
-        public float piority => priorityMultiply * runtimePiority;
     }
 
     public Dictionary<string, Item> dic = new Dictionary<string, Item>();
