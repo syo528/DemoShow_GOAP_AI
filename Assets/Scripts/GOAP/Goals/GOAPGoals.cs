@@ -1,7 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 using System.Collections.Generic;
 
-
 public class GOAPGoals
 {
     public class Item
@@ -9,14 +8,27 @@ public class GOAPGoals
         [LabelText("目标状态")] public GOAPStateType targetState;
         [LabelText("目标趋势")] public GOAPStateComparer targetValue;
         [LabelText("优先级系数"), HorizontalGroup("1")] public float priorityMultiply;
-        [LabelText("实时优先级"), HorizontalGroup("1"), ReadOnly] public float runtimePiority;
+        [LabelText("实时优先级"), HorizontalGroup("1")] public float runtimePiority;
+        [LabelText("目标检查器")] public IGOAPGoalChecker checker;
+        public float piority => priorityMultiply * runtimePiority;
     }
 
     public Dictionary<string, Item> dic = new Dictionary<string, Item>();
 
     public void Init()
     {
+    }
 
+    public void UpdateGoals()
+    {
+        if (dic == null) return;
+        foreach (KeyValuePair<string, Item> item in dic)
+        {
+            if (item.Value.checker != null)
+            {
+                item.Value.checker.Update(item.Value);
+            }
+        }
     }
 
 #if UNITY_EDITOR

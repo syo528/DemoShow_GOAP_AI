@@ -521,6 +521,71 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: goals
+      Entry: 7
+      Data: 7|GOAPGoals, Assembly-CSharp
+    - Name: dic
+      Entry: 7
+      Data: 8|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[GOAPGoals+Item,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 9|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u751F\u547D\u503C\u4E0A\u5347"
+    - Name: $v
+      Entry: 7
+      Data: 10|GOAPGoals+Item, Assembly-CSharp
+    - Name: targetState
+      Entry: 3
+      Data: 0
+    - Name: targetValue
+      Entry: 7
+      Data: 11|BoolStateComparer, Assembly-CSharp
+    - Name: value
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: priorityMultiply
+      Entry: 4
+      Data: 0
+    - Name: runtimePiority
+      Entry: 4
+      Data: 0
+    - Name: checker
+      Entry: 7
+      Data: 12|TestHPGoalChecker, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!4 &1490668447
 Transform:
   m_ObjectHideFlags: 0
