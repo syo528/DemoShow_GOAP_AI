@@ -5,17 +5,12 @@ public class GOAPAgent : SerializedMonoBehaviour
 {
     [LabelText("目标")] public GOAPGoals goals;
     [LabelText("局部状态")] public GOAPStates states;
-
-    private void Start()
+    public IGOAPOwner owner { get; private set; }
+    public void Init(IGOAPOwner owner)
     {
-        Init();
+        goals.Init(this, owner);
     }
-
-    public void Init()
-    {
-        goals.Init();
-    }
-    private void Update()
+    public void OnUpdate()
     {
         Debug.Log(goals.UpdateGoals().First().Key);
     }

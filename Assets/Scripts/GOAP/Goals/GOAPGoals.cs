@@ -33,8 +33,13 @@ public class GOAPGoals
 
     public Dictionary<string, Item> dic = new Dictionary<string, Item>();
     private SortedList<string, Item> sortedList;
-    public void Init()
+
+    private GOAPAgent agent;
+    private IGOAPOwner owner;
+    public void Init(GOAPAgent agent, IGOAPOwner owner)
     {
+        this.agent = agent;
+        this.owner = owner;
         sortedList = new SortedList<string, Item>(dic.Count, new SortedGoalComparer(dic));
     }
 
@@ -46,7 +51,7 @@ public class GOAPGoals
         {
             if (item.Value.checker != null)
             {
-                item.Value.checker.Update(item.Value);
+                item.Value.checker.Update(item.Value, agent, owner);
             }
             sortedList.Add(item.Key, item.Value);
         }
