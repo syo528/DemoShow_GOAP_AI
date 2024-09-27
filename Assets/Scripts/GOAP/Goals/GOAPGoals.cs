@@ -13,22 +13,44 @@ public class GOAPGoals
         [LabelText("目标检查器")] public IGOAPGoalChecker checker;
     }
 
-    public Dictionary<string, Item> dic = new Dictionary<string, Item>();
-
-    public void Init()
+    private class SortedGoalComparer : IComparer<string>
     {
+        public Dictionary<string, Item> dic;
+
+        public SortedGoalComparer(Dictionary<string, Item> dic)
+        {
+            this.dic = dic;
+        }
+
+        public int Compare(string x, string y)
+        {
+            if (x == y) return 0;
+            int com = dic[y].piority.CompareTo(dic[x].piority);
+            if (com == 0) return -1; // 同名同优先级被去重了
+            else return com;
+        }
     }
 
-    public void UpdateGoals()
+    public Dictionary<string, Item> dic = new Dictionary<string, Item>();
+    private SortedList<string, Item> sortedList;
+    public void Init()
     {
-        if (dic == null) return;
+        sortedList = new SortedList<string, Item>(dic.Count, new SortedGoalComparer(dic));
+    }
+
+    public SortedList<string, Item> UpdateGoals()
+    {
+        if (dic == null) return null;
+        sortedList.Clear();
         foreach (KeyValuePair<string, Item> item in dic)
         {
             if (item.Value.checker != null)
             {
                 item.Value.checker.Update(item.Value);
             }
+            sortedList.Add(item.Key, item.Value);
         }
+        return sortedList;
     }
 
 #if UNITY_EDITOR

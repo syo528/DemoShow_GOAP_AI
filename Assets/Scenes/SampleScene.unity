@@ -639,7 +639,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
@@ -651,12 +651,15 @@ MonoBehaviour:
       Data: 3|GOAPGoals+Item, Assembly-CSharp
     - Name: targetState
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: targetValue
       Entry: 7
-      Data: 4|BoolStateComparer, Assembly-CSharp
-    - Name: value
+      Data: 4|FloastStateComparer, Assembly-CSharp
+    - Name: symbol
       Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
       Data: 0
     - Name: 
       Entry: 8
@@ -680,6 +683,42 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u4F11\u606F"
+    - Name: $v
+      Entry: 7
+      Data: 6|GOAPGoals+Item, Assembly-CSharp
+    - Name: targetState
+      Entry: 3
+      Data: 2
+    - Name: targetValue
+      Entry: 7
+      Data: 7|BoolStateComparer, Assembly-CSharp
+    - Name: value
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: priorityMultiply
+      Entry: 4
+      Data: 1
+    - Name: runtimePiority
+      Entry: 4
+      Data: 3
+    - Name: checker
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -690,15 +729,15 @@ MonoBehaviour:
       Data: 
     - Name: states
       Entry: 7
-      Data: 6|GOAPStates, Assembly-CSharp
+      Data: 8|GOAPStates, Assembly-CSharp
     - Name: stateDic
       Entry: 7
-      Data: 7|System.Collections.Generic.Dictionary`2[[GOAPStateType, Assembly-CSharp],[GOAPStateBase,
+      Data: 9|System.Collections.Generic.Dictionary`2[[GOAPStateType, Assembly-CSharp],[GOAPStateBase,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 8|System.Collections.Generic.EnumEqualityComparer`1[[GOAPStateType, Assembly-CSharp]],
-        mscorlib
+      Data: 10|System.Collections.Generic.EnumEqualityComparer`1[[GOAPStateType,
+        Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -719,7 +758,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 9|FloatState, Assembly-CSharp
+      Data: 11|FloatState, Assembly-CSharp
     - Name: value
       Entry: 4
       Data: 0
@@ -737,7 +776,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 10|BoolState, Assembly-CSharp
+      Data: 12|BoolState, Assembly-CSharp
     - Name: value
       Entry: 5
       Data: false
