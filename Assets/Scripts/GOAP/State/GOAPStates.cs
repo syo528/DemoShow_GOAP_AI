@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using System;
 using System.Collections.Generic;
 
 public class GOAPStates
@@ -34,6 +35,13 @@ public class GOAPStates
             return state.Compre(comparer);
         }
         return false;
+    }
+    public void ApplyEffect(GOAPTypeAndComparer effect)
+    {
+        if (stateDic.TryGetValue(effect.stateType, out GOAPStateBase value))
+        {
+            value.ApplyEffect(effect.stateComparer);
+        }
     }
 
 #if UNITY_EDITOR

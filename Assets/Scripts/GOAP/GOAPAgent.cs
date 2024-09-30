@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using System;
 using System.Linq;
 using UnityEngine;
 public class GOAPAgent : SerializedMonoBehaviour
@@ -13,5 +14,10 @@ public class GOAPAgent : SerializedMonoBehaviour
     public void OnUpdate()
     {
         Debug.Log(goals.UpdateGoals().First().Key);
+    }
+
+    public void ApplyEffect(GOAPTypeAndComparer effect)
+    {
+        states.ApplyEffect(effect);
     }
 }

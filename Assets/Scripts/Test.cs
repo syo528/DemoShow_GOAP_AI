@@ -8,4 +8,5 @@ public class Test : SerializedMonoBehaviour
     public GOAPStateComparer stateComparer;
     public GOAPStates states;
     public GOAPGoals goals;
+    public TestAction testAction;
 }
