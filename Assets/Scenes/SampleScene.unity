@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
-    SerializedBytes: 
+    SerializedBytes: []
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -609,10 +609,10 @@ MonoBehaviour:
       Data: 16|FloastStateComparer, Assembly-CSharp
     - Name: symbol
       Entry: 3
-      Data: 4
+      Data: 0
     - Name: value
       Entry: 4
-      Data: 0
+      Data: 50
     - Name: 
       Entry: 8
       Data: 
@@ -875,6 +875,108 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 8
+      Data: 
+    - Name: actions
+      Entry: 7
+      Data: 13|GOAPActions, Assembly-CSharp
+    - Name: actions
+      Entry: 7
+      Data: 14|System.Collections.Generic.List`1[[GOAPActionBase, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 15|TestAction, Assembly-CSharp
+    - Name: preconditions
+      Entry: 7
+      Data: 16|System.Collections.Generic.List`1[[GOAPTypeAndComparer, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 17|GOAPTypeAndComparer, Assembly-CSharp
+    - Name: stateType
+      Entry: 3
+      Data: 1
+    - Name: stateComparer
+      Entry: 7
+      Data: 18|FloastStateComparer, Assembly-CSharp
+    - Name: symbol
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 50
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: effects
+      Entry: 7
+      Data: 19|System.Collections.Generic.List`1[[GOAPTypeAndComparer, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 20|GOAPTypeAndComparer, Assembly-CSharp
+    - Name: stateType
+      Entry: 3
+      Data: 2
+    - Name: stateComparer
+      Entry: 7
+      Data: 21|BoolStateComparer, Assembly-CSharp
+    - Name: value
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: costValue
+      Entry: 4
+      Data: 0
+    - Name: effectValue
+      Entry: 4
+      Data: 20
+    - Name: test
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: plan
+      Entry: 6
       Data: 
 --- !u!114 &1490668449
 MonoBehaviour:
