@@ -6,6 +6,7 @@ public class GOAPAgent : SerializedMonoBehaviour
 {
     [LabelText("目标")] public GOAPGoals goals;
     [LabelText("局部状态")] public GOAPStates states;
+    [LabelText("全部行为")] public GOAPActions actions;
     public IGOAPOwner owner { get; private set; }
     public void Init(IGOAPOwner owner)
     {
