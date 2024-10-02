@@ -1,5 +1,4 @@
 ﻿using Sirenix.OdinInspector;
-using System;
 using System.Linq;
 using UnityEngine;
 public class GOAPAgent : SerializedMonoBehaviour
@@ -12,7 +11,9 @@ public class GOAPAgent : SerializedMonoBehaviour
     public IGOAPOwner owner { get; private set; }
     public void Init(IGOAPOwner owner)
     {
+        this.owner = owner;
         goals.Init(this, owner);
+        actions.Init(this, owner);
     }
     public void OnUpdate()
     {
