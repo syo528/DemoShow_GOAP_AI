@@ -47,6 +47,8 @@ public abstract class GOAPActionBase
         }
     }
 
+    public virtual void UpadatePriority() { }
+
 }
 public class GOAPTypeAndComparer
 {

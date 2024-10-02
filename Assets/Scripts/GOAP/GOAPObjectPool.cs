@@ -12,6 +12,14 @@ public static class GOAPObjectPool
         }
         return default;
     }
+
+    public static T GetOrNew<T>() where T : new()
+    {
+        T obj = Get<T>();
+        if (obj == null) obj = new T();
+        return obj;
+    }
+
     public static void Recycle(object obj)
     {
         Type type = obj.GetType();
