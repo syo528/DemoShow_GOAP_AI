@@ -18,7 +18,7 @@ public abstract class GOAPActionBase
     {
         foreach (GOAPTypeAndComparer item in preconditions)
         {
-            if (!agent.states.CheckState(item.stateType, item.stateComparer))
+            if (!agent.CheckState(item.stateType, item.stateComparer))
             {
                 return false;
             }

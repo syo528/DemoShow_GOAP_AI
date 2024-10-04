@@ -1,6 +1,5 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
-
 public class GOAPGlobal : SerializedMonoBehaviour
 {
     public static GOAPGlobal instance { get; private set; }

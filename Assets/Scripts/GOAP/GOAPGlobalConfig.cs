@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
 [CreateAssetMenu(menuName = "Config/GOAP/GOAPGlobalConfig")]
 public class GOAPGlobalConfig : SerializedScriptableObject
 {

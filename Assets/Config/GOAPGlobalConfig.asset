@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 479faad5e0d0867449efbf869d916ec6, type: 3}
+  m_Script: {fileID: 11500000, guid: e744bc67b81edfd489dc3d132b370f12, type: 3}
   m_Name: GOAPGlobalConfig
   m_EditorClassIdentifier: 
   serializationData:
@@ -51,13 +51,7 @@ MonoBehaviour:
       Entry: 7
       Data: 2|GOAPGlobalConfig+GOAPStateConfigItem, Assembly-CSharp
     - Name: state
-      Entry: 7
-      Data: 3|FloatState, Assembly-CSharp
-    - Name: value
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: isGlobal
       Entry: 5
@@ -76,10 +70,10 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 4|GOAPGlobalConfig+GOAPStateConfigItem, Assembly-CSharp
+      Data: 3|GOAPGlobalConfig+GOAPStateConfigItem, Assembly-CSharp
     - Name: state
       Entry: 7
-      Data: 5|BoolState, Assembly-CSharp
+      Data: 4|BoolState, Assembly-CSharp
     - Name: value
       Entry: 5
       Data: false
