@@ -156,7 +156,7 @@ public class GOAPAgent : SerializedMonoBehaviour
                 node.parent = null;
                 node.indexAtParent = 0;
                 plan.goalName = goalName;
-                plan.startNode = node;
+                plan.SetStartNode(node);
                 success = true;
                 break;
             }

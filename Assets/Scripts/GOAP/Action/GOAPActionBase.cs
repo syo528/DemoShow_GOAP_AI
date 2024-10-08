@@ -26,8 +26,20 @@ public abstract class GOAPActionBase
         return true;
     }
 
+    public virtual GOAPRunState StartRun()
+    {
+        if (CheckPrecondition())
+        {
+            OnStart();
+            return GOAPRunState.Runing;
+        }
+        else
+        {
+            return GOAPRunState.Failed;
+        }
+    }
     public virtual void OnStart() { }
-    public virtual void OnUpdate() { }
+    public virtual GOAPRunState OnUpdate() { return default; }
     public virtual void OnStop() { }
     public virtual void OnDestroy() { }
 
