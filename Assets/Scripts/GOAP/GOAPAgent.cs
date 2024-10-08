@@ -35,6 +35,11 @@ public class GOAPAgent : SerializedMonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        plan.OnDestroy();
+    }
+
     public void ApplyEffect(GOAPTypeAndComparer effect)
     {
         states.ApplyEffect(effect);

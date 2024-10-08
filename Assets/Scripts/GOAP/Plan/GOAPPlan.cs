@@ -1,18 +1,100 @@
-﻿public class GOAPPlan
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
+
+public class GOAPPlan
 {
     public GOAPPlanNode startNode; // 最终完成目标效果的节点
     public GOAPPlanNode runingNode;// 运行中的节点
     public string goalName;         // 目标
-
+    [ShowInInspector, ReadOnly] public bool runing { get; private set; }
+    public GOAPPlanNode stageNode => runingNode.parent;
+    public int runingNodeChildIndex => runingNode.indexAtParent;
     public void SetStartNode(GOAPPlanNode startNode)
     {
         this.startNode = startNode;
+        runing = false;
     }
 
     public void StartRun()
     {
-        // TODO:找到整个树结构最下层的节点
-        runingNode = startNode;
-        runingNode.Start();
+        // 找到整个树结构最下层的节点
+        StartRunNode(GetDeepestNode(startNode));
+    }
+    private GOAPPlanNode GetDeepestNode(GOAPPlanNode startNode)
+    {
+        if (startNode.preconditions.Count == 0) return null;
+        GOAPPlanNode tempNode = startNode.preconditions[0];
+        GOAPPlanNode childNode = GetDeepestNode(tempNode);
+        if (childNode == null) return tempNode;
+        else return GetDeepestNode(childNode);
+    }
+    public void OnUpdate()
+    {
+        if (!runing) return;
+        GOAPRunState nodeState = runingNode.Update();
+        if (nodeState == GOAPRunState.Succeed) // 执行下一个
+        {
+            runingNode.Stop();
+            // 如果完成的是startNode，代表计划完成
+            if (runingNode == startNode)
+            {
+                Debug.Log("任务全部完成");
+                RecycleNodes(startNode);
+                startNode = null;
+                runing = false;
+                return;
+            }
+            // 有同层可以执行则运行同层的下一个节点
+            if (runingNodeChildIndex < stageNode.preconditions.Count - 1)
+            {
+                StartRunNode(stageNode.preconditions[runingNodeChildIndex + 1]);
+            }
+            // 不存在同层下一个节点，则运行父节点
+            else
+            {
+                StartRunNode(stageNode);
+            }
+        }
+        else if (nodeState == GOAPRunState.Failed)
+        {
+            RecycleNodes(startNode);
+            startNode = null;
+            runing = false;
+        }
+        // 执行中就不用处理
+    }
+
+    private void RecycleNodes(GOAPPlanNode node)
+    {
+        foreach (GOAPPlanNode item in node.preconditions)
+        {
+            RecycleNodes(item);
+        }
+        node.action = null;
+        node.parent = null;
+        node.indexAtParent = 0;
+        node.preconditions.Clear();
+    }
+
+    private void StartRunNode(GOAPPlanNode node)
+    {
+        runingNode = node;
+        runing = runingNode.Start() != GOAPRunState.Failed;
+        if (!runing)
+        {
+            RecycleNodes(startNode);
+        }
+    }
+
+    public void OnDestroy()
+    {
+        if (runingNode != null)
+        {
+            runingNode.action.OnDestroy();
+        }
+        if (startNode != null)
+        {
+            RecycleNodes(startNode);
+        }
     }
 }
