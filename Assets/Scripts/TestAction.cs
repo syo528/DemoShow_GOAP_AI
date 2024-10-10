@@ -1,10 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using UnityEngine;
 
 public class TestAction : GOAPActionBase
 {
-    public float test;
+    public float timer;
+    public override void OnStart()
+    {
+        timer = 0;
+    }
+
+    public override GOAPRunState OnUpdate()
+    {
+        timer += Time.deltaTime;
+        if (timer > 1)
+        {
+            ApplyEffect();
+            return GOAPRunState.Succeed;
+        }
+        else
+        {
+            return GOAPRunState.Runing;
+        }
+    }
+
 }

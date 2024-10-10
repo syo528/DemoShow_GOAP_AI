@@ -1,9 +1,5 @@
 ﻿using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 public class GOAPAgent : SerializedMonoBehaviour
 {
@@ -22,17 +18,21 @@ public class GOAPAgent : SerializedMonoBehaviour
     public void OnUpdate()
     {
         if (owner == null) return;
-        // TODO:计划在执行就不需要去构建任务了
-        SortedList<string, GOAPGoals.Item> sortedGoals = goals.UpdateGoals();
-        foreach (KeyValuePair<string, GOAPGoals.Item> item in sortedGoals)
+        if (!plan.runing)
         {
-            // 优先级不是负数，同时可以基于这个目标生成计划
-            if (item.Value.piority > 0 && GeneratePlan(item.Key))
+            SortedList<string, GOAPGoals.Item> sortedGoals = goals.UpdateGoals();
+            foreach (KeyValuePair<string, GOAPGoals.Item> item in sortedGoals)
             {
-                Debug.Log("任务构建成功" + item.Key);
-                break;
+                // 优先级不是负数，同时可以基于这个目标生成计划
+                if (item.Value.piority > 0 && GeneratePlan(item.Key))
+                {
+                    Debug.Log("任务构建成功" + item.Key);
+                    RunPlan();
+                    break;
+                }
             }
         }
+        plan.OnUpdate();
     }
 
     private void OnDestroy()
@@ -171,5 +171,12 @@ public class GOAPAgent : SerializedMonoBehaviour
         return success;
     }
 
+    #endregion
+
+    #region 执行任务
+    private void RunPlan()
+    {
+        plan.StartRun();
+    }
     #endregion
 }

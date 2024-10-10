@@ -1,5 +1,4 @@
 ﻿using Sirenix.OdinInspector;
-using System;
 using System.Collections.Generic;
 
 public class GOAPStates
@@ -24,9 +23,13 @@ public class GOAPStates
         if (stateDic.TryGetValue(type, out GOAPStateBase tempState))
         {
             state = (T)tempState;
+            return true;
         }
-        state = default;
-        return false;
+        else
+        {
+            state = default;
+            return false;
+        }
     }
     public bool CheckState(GOAPStateType type, GOAPStateComparer comparer)
     {

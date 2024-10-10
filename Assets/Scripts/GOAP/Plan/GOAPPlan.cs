@@ -22,11 +22,9 @@ public class GOAPPlan
     }
     private GOAPPlanNode GetDeepestNode(GOAPPlanNode startNode)
     {
-        if (startNode.preconditions.Count == 0) return null;
+        if (startNode.preconditions.Count == 0) return startNode;
         GOAPPlanNode tempNode = startNode.preconditions[0];
-        GOAPPlanNode childNode = GetDeepestNode(tempNode);
-        if (childNode == null) return tempNode;
-        else return GetDeepestNode(childNode);
+        return GetDeepestNode(tempNode);
     }
     public void OnUpdate()
     {
