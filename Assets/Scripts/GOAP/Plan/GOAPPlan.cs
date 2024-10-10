@@ -77,7 +77,7 @@ public class GOAPPlan
     private void StartRunNode(GOAPPlanNode node)
     {
         runingNode = node;
-        runing = runingNode.Start() != GOAPRunState.Failed;
+        runing = runingNode.Start() == GOAPRunState.Runing;
         if (!runing)
         {
             RecycleNodes(startNode);
@@ -88,7 +88,7 @@ public class GOAPPlan
     {
         if (runingNode != null)
         {
-            runingNode.action.OnDestroy();
+            runingNode.action?.OnDestroy();
         }
         if (startNode != null)
         {

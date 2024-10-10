@@ -662,7 +662,7 @@ MonoBehaviour:
     - Name: effectValue
       Entry: 4
       Data: 20
-    - Name: test
+    - Name: timer
       Entry: 4
       Data: 0
     - Name: 
@@ -960,7 +960,7 @@ MonoBehaviour:
     - Name: effectValue
       Entry: 4
       Data: 20
-    - Name: test
+    - Name: timer
       Entry: 4
       Data: 0
     - Name: 
@@ -1019,7 +1019,7 @@ MonoBehaviour:
     - Name: effectValue
       Entry: 4
       Data: 1
-    - Name: test
+    - Name: timer
       Entry: 4
       Data: 0
     - Name: 

@@ -7,7 +7,8 @@ public abstract class GOAPStateBase
     public abstract GOAPStateBase Copy();
     public abstract GOAPStateComparer GetComparer();
     public abstract Type GetGetComparerType();
-    public abstract bool Compre(GOAPStateComparer comparer);
+    public abstract bool CompreForPrecondition(GOAPStateComparer comparer);
+    public abstract bool CompreForEffect(GOAPStateComparer comparer);
     public abstract void ApplyEffect(GOAPStateComparer comparer);
 }
 
@@ -45,10 +46,15 @@ public abstract class GOAPStateBase<T, V, C> : GOAPStateBase where T : GOAPState
         return GetStateComparer();
     }
 
-    public abstract bool Compre(C comparer);
-    public override bool Compre(GOAPStateComparer comparer)
+    public abstract bool CompreForPrecondition(C comparer);
+    public override bool CompreForPrecondition(GOAPStateComparer comparer)
     {
-        return Compre((C)comparer);
+        return CompreForPrecondition((C)comparer);
+    }
+    public abstract bool CompreForEffect(C comparer);
+    public override bool CompreForEffect(GOAPStateComparer comparer)
+    {
+        return CompreForEffect((C)comparer);
     }
 
     public abstract void ApplyEffect(C comparer);

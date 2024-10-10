@@ -1,5 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 public class GOAPAgent : SerializedMonoBehaviour
 {
@@ -45,15 +46,27 @@ public class GOAPAgent : SerializedMonoBehaviour
         states.ApplyEffect(effect);
     }
 
-    public bool CheckState(GOAPStateType stateType, GOAPStateComparer stateComparer)
+    public bool CheckStateForPrecondition(GOAPStateType stateType, GOAPStateComparer stateComparer)
     {
         if (GOAPGlobalConfig.IsGlobalState(stateType))
         {
-            return GOAPGlobal.instance.GlobalStates.CheckState(stateType, stateComparer);
+            return GOAPGlobal.instance.GlobalStates.CheckStateForPrecondition(stateType, stateComparer);
         }
         else
         {
-            return states.CheckState(stateType, stateComparer);
+            return states.CheckStateForPrecondition(stateType, stateComparer);
+        }
+    }
+
+    public bool CheckStateForEffect(GOAPStateType stateType, GOAPStateComparer stateComparer)
+    {
+        if (GOAPGlobalConfig.IsGlobalState(stateType))
+        {
+            return GOAPGlobal.instance.GlobalStates.CheckStateForEffect(stateType, stateComparer);
+        }
+        else
+        {
+            return states.CheckStateForEffect(stateType, stateComparer);
         }
     }
 
@@ -116,7 +129,7 @@ public class GOAPAgent : SerializedMonoBehaviour
         foreach (GOAPTypeAndComparer pre in startNode.action.preconditions)
         {
             // 当前状态的满足情况
-            bool check = CheckState(pre.stateType, pre.stateComparer);
+            bool check = CheckStateForPrecondition(pre.stateType, pre.stateComparer);
             if (!check) // 当前状态不满足，需要寻找可以满足的其他Action作为子节点
             {
                 SortedSet<GOAPPlanNode> preNodes = GetPlanNodesByeEffectStateType(pre.stateType, pre.stateComparer);
@@ -148,10 +161,15 @@ public class GOAPAgent : SerializedMonoBehaviour
     private bool GeneratePlan(string goalName)
     {
         bool success = false;
-        GOAPGoals.Item goas = goals.dic[goalName];
-        GOAPStateType targetStateType = goas.targetState;
+        GOAPGoals.Item goal = goals.dic[goalName];
+        // 遍历所有的效果，如果已经全部满足则没有意义
+        if (CheckStateForEffect(goal.targetState, goal.targetValue))
+        {
+            return false;
+        }
+        GOAPStateType targetStateType = goal.targetState;
         // 获取符合效果的全部Action以此尝试构建计划，成功的作为初始Action
-        SortedSet<GOAPPlanNode> nodes = GetPlanNodesByeEffectStateType(targetStateType, goas.targetValue);
+        SortedSet<GOAPPlanNode> nodes = GetPlanNodesByeEffectStateType(targetStateType, goal.targetValue);
         GOAPPlanNode targetNode = null;
         foreach (GOAPPlanNode node in nodes)
         {

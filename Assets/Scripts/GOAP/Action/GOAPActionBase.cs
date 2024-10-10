@@ -18,7 +18,18 @@ public abstract class GOAPActionBase
     {
         foreach (GOAPTypeAndComparer item in preconditions)
         {
-            if (!agent.CheckState(item.stateType, item.stateComparer))
+            if (!agent.CheckStateForPrecondition(item.stateType, item.stateComparer))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public virtual bool CheckEffect()
+    {
+        foreach (GOAPTypeAndComparer item in effects)
+        {
+            if (!agent.CheckStateForEffect(item.stateType, item.stateComparer))
             {
                 return false;
             }
@@ -28,7 +39,11 @@ public abstract class GOAPActionBase
 
     public virtual GOAPRunState StartRun()
     {
-        if (CheckPrecondition())
+        if (CheckEffect())
+        {
+            return GOAPRunState.Succeed;
+        }
+        else if (CheckPrecondition())
         {
             OnStart();
             return GOAPRunState.Runing;

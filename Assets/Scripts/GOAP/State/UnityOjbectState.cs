@@ -8,7 +8,7 @@
         }
     }
 
-    public override bool Compre(UnityObjectStateComparer comparer)
+    public override bool CompreForPrecondition(UnityObjectStateComparer comparer)
     {
         switch (comparer.symbol)
         {
@@ -19,6 +19,11 @@
         }
 
         return this.value = comparer.value;
+    }
+
+    public override bool CompreForEffect(UnityObjectStateComparer comparer)
+    {
+        return CompreForPrecondition(comparer);
     }
 
     public override bool EqualsValue(UnityObjectState other)

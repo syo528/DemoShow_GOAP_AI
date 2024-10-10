@@ -31,11 +31,19 @@ public class GOAPStates
             return false;
         }
     }
-    public bool CheckState(GOAPStateType type, GOAPStateComparer comparer)
+    public bool CheckStateForPrecondition(GOAPStateType type, GOAPStateComparer comparer)
     {
         if (TryGetState(type, out GOAPStateBase state))
         {
-            return state.Compre(comparer);
+            return state.CompreForPrecondition(comparer);
+        }
+        return false;
+    }
+    public bool CheckStateForEffect(GOAPStateType type, GOAPStateComparer comparer)
+    {
+        if (TryGetState(type, out GOAPStateBase state))
+        {
+            return state.CompreForEffect(comparer);
         }
         return false;
     }

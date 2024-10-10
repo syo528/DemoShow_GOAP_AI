@@ -13,7 +13,7 @@
         }
     }
 
-    public override bool Compre(BoolStateComparer comparer)
+    public override bool CompreForPrecondition(BoolStateComparer comparer)
     {
         switch (comparer.value)
         {
@@ -23,6 +23,11 @@
                 return !value;
         }
         return false;
+    }
+
+    public override bool CompreForEffect(BoolStateComparer comparer)
+    {
+        return CompreForPrecondition(comparer);
     }
 
     public override bool EqualsValue(BoolState other)
