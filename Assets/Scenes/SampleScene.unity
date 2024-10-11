@@ -528,7 +528,7 @@ MonoBehaviour:
       Data: 7|GOAPGoals, Assembly-CSharp
     - Name: dic
       Entry: 7
-      Data: 8|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[GOAPGoals+Item,
+      Data: 8|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[GOAPGoals+Goal,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -548,7 +548,7 @@ MonoBehaviour:
       Data: "\u751F\u547D\u503C\u4E0A\u5347"
     - Name: $v
       Entry: 7
-      Data: 10|GOAPGoals+Item, Assembly-CSharp
+      Data: 10|GOAPGoals+Goal, Assembly-CSharp
     - Name: targetState
       Entry: 3
       Data: 0
@@ -567,6 +567,12 @@ MonoBehaviour:
     - Name: runtimePiority
       Entry: 4
       Data: 0
+    - Name: canBreak
+      Entry: 5
+      Data: false
+    - Name: canBeBreak
+      Entry: 5
+      Data: false
     - Name: checker
       Entry: 7
       Data: 12|TestHPGoalChecker, Assembly-CSharp
@@ -662,6 +668,9 @@ MonoBehaviour:
     - Name: effectValue
       Entry: 4
       Data: 20
+    - Name: time
+      Entry: 4
+      Data: 0
     - Name: timer
       Entry: 4
       Data: 0
@@ -709,7 +718,7 @@ MonoBehaviour:
       Data: 0|GOAPGoals, Assembly-CSharp
     - Name: dic
       Entry: 7
-      Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[GOAPGoals+Item,
+      Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[GOAPGoals+Goal,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -729,7 +738,7 @@ MonoBehaviour:
       Data: "\u751F\u547D\u503C\u4E0A\u5347"
     - Name: $v
       Entry: 7
-      Data: 3|GOAPGoals+Item, Assembly-CSharp
+      Data: 3|GOAPGoals+Goal, Assembly-CSharp
     - Name: targetState
       Entry: 3
       Data: 1
@@ -751,6 +760,12 @@ MonoBehaviour:
     - Name: runtimePiority
       Entry: 4
       Data: 0
+    - Name: canBreak
+      Entry: 5
+      Data: true
+    - Name: canBeBreak
+      Entry: 5
+      Data: true
     - Name: checker
       Entry: 7
       Data: 5|TestHPGoalChecker, Assembly-CSharp
@@ -771,7 +786,7 @@ MonoBehaviour:
       Data: "\u4F11\u606F"
     - Name: $v
       Entry: 7
-      Data: 6|GOAPGoals+Item, Assembly-CSharp
+      Data: 6|GOAPGoals+Goal, Assembly-CSharp
     - Name: targetState
       Entry: 3
       Data: 2
@@ -790,6 +805,12 @@ MonoBehaviour:
     - Name: runtimePiority
       Entry: 4
       Data: 3
+    - Name: canBreak
+      Entry: 5
+      Data: true
+    - Name: canBeBreak
+      Entry: 5
+      Data: true
     - Name: checker
       Entry: 6
       Data: 
@@ -960,9 +981,12 @@ MonoBehaviour:
     - Name: effectValue
       Entry: 4
       Data: 20
-    - Name: timer
+    - Name: time
       Entry: 4
       Data: 0
+    - Name: timer
+      Entry: 4
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -1019,6 +1043,9 @@ MonoBehaviour:
     - Name: effectValue
       Entry: 4
       Data: 1
+    - Name: time
+      Entry: 4
+      Data: 5
     - Name: timer
       Entry: 4
       Data: 0

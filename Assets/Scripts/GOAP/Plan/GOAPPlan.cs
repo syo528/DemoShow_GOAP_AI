@@ -9,17 +9,22 @@ public class GOAPPlan
     [ShowInInspector, ReadOnly] public bool runing { get; private set; }
     public GOAPPlanNode stageNode => runingNode.parent;
     public int runingNodeChildIndex => runingNode.indexAtParent;
-    public void SetStartNode(GOAPPlanNode startNode)
-    {
-        this.startNode = startNode;
-        runing = false;
-    }
 
-    public void StartRun()
+    public void StartRun(string goalName, GOAPPlanNode targetNode)
     {
+        this.goalName = goalName;
+        this.startNode = targetNode;
         // 找到整个树结构最下层的节点
         StartRunNode(GetDeepestNode(startNode));
     }
+
+    public void Stop()
+    {
+        RecycleNodes(startNode);
+        startNode = null;
+        runing = false;
+    }
+
     private GOAPPlanNode GetDeepestNode(GOAPPlanNode startNode)
     {
         if (startNode.preconditions.Count == 0) return startNode;
@@ -28,7 +33,6 @@ public class GOAPPlan
     }
     public void OnUpdate()
     {
-        if (!runing) return;
         GOAPRunState nodeState = runingNode.Update();
         if (nodeState == GOAPRunState.Succeed) // 执行下一个
         {
@@ -37,9 +41,7 @@ public class GOAPPlan
             if (runingNode == startNode)
             {
                 Debug.Log("任务全部完成");
-                RecycleNodes(startNode);
-                startNode = null;
-                runing = false;
+                Stop();
                 return;
             }
             // 有同层可以执行则运行同层的下一个节点
@@ -55,23 +57,24 @@ public class GOAPPlan
         }
         else if (nodeState == GOAPRunState.Failed)
         {
-            RecycleNodes(startNode);
-            startNode = null;
-            runing = false;
+            Stop();
         }
         // 执行中就不用处理
     }
 
     private void RecycleNodes(GOAPPlanNode node)
     {
-        foreach (GOAPPlanNode item in node.preconditions)
+        if (node != null)
         {
-            RecycleNodes(item);
+            foreach (GOAPPlanNode item in node.preconditions)
+            {
+                RecycleNodes(item);
+            }
+            node.action = null;
+            node.parent = null;
+            node.indexAtParent = 0;
+            node.preconditions.Clear();
         }
-        node.action = null;
-        node.parent = null;
-        node.indexAtParent = 0;
-        node.preconditions.Clear();
     }
 
     private void StartRunNode(GOAPPlanNode node)

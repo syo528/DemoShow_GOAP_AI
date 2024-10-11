@@ -3,21 +3,23 @@ using System.Collections.Generic;
 
 public class GOAPGoals
 {
-    public class Item
+    public class Goal
     {
         [LabelText("目标状态")] public GOAPStateType targetState;
         [LabelText("目标趋势")] public GOAPStateComparer targetValue;
         [LabelText("优先级系数"), HorizontalGroup("1")] public float priorityMultiply;
         [LabelText("实时优先级"), HorizontalGroup("1")] public float runtimePiority;
+        [LabelText("可以中断其他目标")] public bool canBreak;
+        [LabelText("可以被其他目标中断")] public bool canBeBreak;
         [LabelText("最终优先级"), ShowInInspector, ReadOnly, HorizontalGroup("1")] public float piority => priorityMultiply * runtimePiority;
         [LabelText("目标检查器")] public IGOAPGoalChecker checker;
     }
 
     private class SortedGoalComparer : IComparer<string>
     {
-        public Dictionary<string, Item> dic;
+        public Dictionary<string, Goal> dic;
 
-        public SortedGoalComparer(Dictionary<string, Item> dic)
+        public SortedGoalComparer(Dictionary<string, Goal> dic)
         {
             this.dic = dic;
         }
@@ -31,8 +33,8 @@ public class GOAPGoals
         }
     }
 
-    public Dictionary<string, Item> dic = new Dictionary<string, Item>();
-    private SortedList<string, Item> sortedList;
+    public Dictionary<string, Goal> dic = new Dictionary<string, Goal>();
+    private SortedList<string, Goal> sortedList;
 
     private GOAPAgent agent;
     private IGOAPOwner owner;
@@ -40,14 +42,14 @@ public class GOAPGoals
     {
         this.agent = agent;
         this.owner = owner;
-        sortedList = new SortedList<string, Item>(dic.Count, new SortedGoalComparer(dic));
+        sortedList = new SortedList<string, Goal>(dic.Count, new SortedGoalComparer(dic));
     }
 
-    public SortedList<string, Item> UpdateGoals()
+    public SortedList<string, Goal> UpdateGoals()
     {
         if (dic == null) return null;
         sortedList.Clear();
-        foreach (KeyValuePair<string, Item> item in dic)
+        foreach (KeyValuePair<string, Goal> item in dic)
         {
             if (item.Value.checker != null)
             {
@@ -63,7 +65,7 @@ public class GOAPGoals
     public void CheckGoalsTargetValueType()
     {
         List<string> createList = new List<string>();
-        foreach (KeyValuePair<string, Item> item in dic)
+        foreach (KeyValuePair<string, Goal> item in dic)
         {
             if (item.Value == null || item.Value.targetValue == null
                 || item.Value.targetValue.GetType() != GOAPGlobalConfig.GetStateValueType(item.Value.targetState))
@@ -73,7 +75,7 @@ public class GOAPGoals
         }
         foreach (string goalName in createList)
         {
-            Item item = dic[goalName];
+            Goal item = dic[goalName];
             if (item == null) continue;
             item.targetValue = GOAPGlobalConfig.CopyState(item.targetState).GetComparer();
         }

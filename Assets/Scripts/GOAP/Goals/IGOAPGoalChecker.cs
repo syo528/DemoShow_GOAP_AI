@@ -1,4 +1,4 @@
 ﻿public interface IGOAPGoalChecker
 {
-    public void Update(GOAPGoals.Item item, GOAPAgent agent, IGOAPOwner owner);
+    public void Update(GOAPGoals.Goal item, GOAPAgent agent, IGOAPOwner owner);
 }

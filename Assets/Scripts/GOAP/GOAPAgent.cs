@@ -21,19 +21,40 @@ public class GOAPAgent : SerializedMonoBehaviour
         if (owner == null) return;
         if (!plan.runing)
         {
-            SortedList<string, GOAPGoals.Item> sortedGoals = goals.UpdateGoals();
-            foreach (KeyValuePair<string, GOAPGoals.Item> item in sortedGoals)
+            SortedList<string, GOAPGoals.Goal> sortedGoals = goals.UpdateGoals();
+            foreach (KeyValuePair<string, GOAPGoals.Goal> item in sortedGoals)
             {
                 // 优先级不是负数，同时可以基于这个目标生成计划
-                if (item.Value.piority > 0 && GeneratePlan(item.Key))
+                if (item.Value.piority > 0 && GeneratePlan(item.Key, out GOAPPlanNode targetNode))
                 {
-                    Debug.Log("任务构建成功" + item.Key);
-                    RunPlan();
+                    Debug.Log("计划构建成功:" + item.Key);
+                    RunPlan(item.Key, targetNode);
                     break;
                 }
             }
         }
-        plan.OnUpdate();
+        else
+        {
+            // 如果当前目标是可以被中断的，可以尝试找优先级更高的目标
+            GOAPGoals.Goal currentGoal = goals.dic[plan.goalName];
+            if (currentGoal.canBeBreak)
+            {
+                SortedList<string, GOAPGoals.Goal> sortedGoals = goals.UpdateGoals();
+                foreach (KeyValuePair<string, GOAPGoals.Goal> item in sortedGoals)
+                {
+                    if (item.Key != plan.goalName
+                        && item.Value.canBreak
+                        && item.Value.piority > currentGoal.piority
+                        && GeneratePlan(item.Key, out GOAPPlanNode targetNode))
+                    {
+                        Debug.Log("目标被替换为优先级更高的，并构建计划成功:" + item.Key);
+                        StopPlan();
+                        RunPlan(item.Key, targetNode);
+                    }
+                }
+            }
+            plan.OnUpdate();
+        }
     }
 
     private void OnDestroy()
@@ -41,6 +62,7 @@ public class GOAPAgent : SerializedMonoBehaviour
         plan.OnDestroy();
     }
 
+    #region 状态
     public void ApplyEffect(GOAPTypeAndComparer effect)
     {
         states.ApplyEffect(effect);
@@ -69,6 +91,8 @@ public class GOAPAgent : SerializedMonoBehaviour
             return states.CheckStateForEffect(stateType, stateComparer);
         }
     }
+    #endregion
+
 
     #region 生成计划
     private class PlanNodePriorityComparer : IComparer<GOAPPlanNode>
@@ -158,10 +182,11 @@ public class GOAPAgent : SerializedMonoBehaviour
         return true;
     }
 
-    private bool GeneratePlan(string goalName)
+    private bool GeneratePlan(string goalName, out GOAPPlanNode targetNode)
     {
         bool success = false;
-        GOAPGoals.Item goal = goals.dic[goalName];
+        GOAPGoals.Goal goal = goals.dic[goalName];
+        targetNode = null;
         // 遍历所有的效果，如果已经全部满足则没有意义
         if (CheckStateForEffect(goal.targetState, goal.targetValue))
         {
@@ -170,7 +195,6 @@ public class GOAPAgent : SerializedMonoBehaviour
         GOAPStateType targetStateType = goal.targetState;
         // 获取符合效果的全部Action以此尝试构建计划，成功的作为初始Action
         SortedSet<GOAPPlanNode> nodes = GetPlanNodesByeEffectStateType(targetStateType, goal.targetValue);
-        GOAPPlanNode targetNode = null;
         foreach (GOAPPlanNode node in nodes)
         {
             if (TryBuildPlanPath(node))
@@ -178,8 +202,6 @@ public class GOAPAgent : SerializedMonoBehaviour
                 targetNode = node;
                 node.parent = null;
                 node.indexAtParent = 0;
-                plan.goalName = goalName;
-                plan.SetStartNode(node);
                 success = true;
                 break;
             }
@@ -192,9 +214,14 @@ public class GOAPAgent : SerializedMonoBehaviour
     #endregion
 
     #region 执行任务
-    private void RunPlan()
+    private void RunPlan(string goalName, GOAPPlanNode targetNode)
     {
-        plan.StartRun();
+        plan.StartRun(goalName, targetNode);
     }
+    public void StopPlan()
+    {
+        plan.Stop();
+    }
+
     #endregion
 }
