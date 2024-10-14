@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
     }
-    public void SetRoleCountText(int count)
+    public void SetRoleCount(int count)
     {
         roleCountText.text = $"角色数量:{count}";
     }

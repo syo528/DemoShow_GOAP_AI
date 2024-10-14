@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,10 @@ public class MapManager : MonoBehaviour
     {
         Instance = this;
     }
-
+    private void Update()
+    {
+        UpdateSpawnRole();
+    }
     private void CreateBackupCells()
     {
         currentCircleNum += 1;
@@ -54,4 +58,112 @@ public class MapManager : MonoBehaviour
         }
         return backupCells.Pop();
     }
+
+    #region 浆果
+    [Header("浆果")]
+    public Transform berryRoot;
+    public GameObject berryPrefab;
+    [ReadOnly] public HashSet<BerryController> ripeBerries = new HashSet<BerryController>();
+    [ReadOnly] public int ripeBerryCount => ripeBerries.Count;
+
+    public BerryController SpawnBerry(Vector2Int coord)
+    {
+        BerryController berry = GameObject.Instantiate(berryPrefab, GetCellPosition(coord), Quaternion.identity, berryRoot).GetComponent<BerryController>();
+        return berry;
+    }
+
+    public void OnBerryRipe(BerryController berryController)
+    {
+        if (ripeBerries.Add(berryController))
+        {
+            UIManager.Instance.SetRipeBerryCount(ripeBerryCount);
+            // TODO:同步给GOAP
+        }
+    }
+
+    public void RemoveBerryRipe(BerryController berryController)
+    {
+        if (ripeBerries.Remove(berryController))
+        {
+            UIManager.Instance.SetRipeBerryCount(ripeBerryCount);
+            // TODO:同步给GOAP
+        }
+    }
+
+    public BerryController RoleTryGetRipeBerry()
+    {
+        if (ripeBerryCount == 0) return null;
+        BerryController berry = null;
+        foreach (var item in ripeBerries)
+        {
+            berry = item;
+            break;
+        }
+        RemoveBerryRipe(berry);
+        return berry;
+    }
+
+    #endregion
+
+    #region 食物
+    private int reserveFoodCount;
+    public int ReserveFoodCount
+    {
+        get => reserveFoodCount;
+        set
+        {
+            reserveFoodCount = value;
+            UIManager.Instance.SetReserveFoodCount(reserveFoodCount);
+            // TODO:同步给GOAP
+        }
+    }
+    #endregion
+
+    #region 村民
+    [Header("村民")]
+    public GameObject rolePrefab;
+    public Transform roleRoot;
+    public int maxRoleCount = 10;
+    public float spawnRoleInterval = 3;
+    private int roleCount;
+    public int RoleCount
+    {
+        get => roleCount;
+        set
+        {
+            roleCount = value;
+            UIManager.Instance.SetRoleCount(roleCount);
+            // TODO:同步给GOAP
+        }
+    }
+
+
+    private float spawnRoleTimer;
+    private void UpdateSpawnRole()
+    {
+        if (roleCount >= maxRoleCount) return;
+        spawnRoleTimer -= Time.deltaTime;
+        if (spawnRoleTimer <= 0)
+        {
+            spawnRoleTimer = spawnRoleInterval;
+            if (reserveFoodCount > roleCount * 3) // 食物是人口的三倍则产生新人口
+            {
+                Vector3 pos = new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f));
+                GameObject.Instantiate(rolePrefab, pos, Quaternion.identity, roleRoot);
+                RoleCount += 1;
+            }
+        }
+    }
+
+    public void OnRoleDie()
+    {
+        RoleCount -= 1;
+    }
+
+    public void OnRoleEat()
+    {
+        ReserveFoodCount -= 1;
+    }
+
+    #endregion
 }
