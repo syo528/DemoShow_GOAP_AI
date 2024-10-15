@@ -561,22 +561,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1962237183056038618, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 1962237183056038618, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
     - target: {fileID: 3179056419624091301, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
       propertyPath: m_Name
       value: Role
       objectReference: {fileID: 0}
-    - target: {fileID: 7503143248780385857, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 678081768}
-    - target: {fileID: 7503143248780385857, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
-      propertyPath: goapAgent
-      value: 
-      objectReference: {fileID: 678081769}
-    - target: {fileID: 7503143248780385857, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
-      propertyPath: navMeshAgent
-      value: 
-      objectReference: {fileID: 678081767}
     - target: {fileID: 8708681592851256113, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.9
@@ -620,59 +612,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3179056419624091301, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 678081769}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
---- !u!1 &678081766 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3179056419624091301, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
-  m_PrefabInstance: {fileID: 678081765}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &678081767 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 3137141346822898533, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
-  m_PrefabInstance: {fileID: 678081765}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &678081768 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9049535071285561970, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
-  m_PrefabInstance: {fileID: 678081765}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &678081769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678081766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e4a7ab007357a64d886092e41545367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: goals
-      Entry: 6
-      Data: 
-    - Name: states
-      Entry: 6
-      Data: 
-    - Name: actions
-      Entry: 6
-      Data: 
-    - Name: plan
-      Entry: 6
-      Data: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

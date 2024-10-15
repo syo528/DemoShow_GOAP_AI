@@ -14,6 +14,7 @@ public class RoleController : MonoBehaviour, IStateMachineOwner, IGOAPOwner
         stateMachine = new StateMachine();
         stateMachine.Init(this);
         goapAgent.Init(this);
+        stateMachine.ChangeState<RoleIdleState>();
     }
 
     public void PlayAniamtion(string animationName)
