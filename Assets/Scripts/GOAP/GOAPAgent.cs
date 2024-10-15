@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public class GOAPAgent : SerializedMonoBehaviour
 {
-    [LabelText("目标")] public GOAPGoals goals;
-    [LabelText("局部状态")] public GOAPStates states;
-    [LabelText("全部行为")] public GOAPActions actions;
-    [LabelText("计划")] public GOAPPlan plan;
+    [LabelText("目标")] public GOAPGoals goals = new GOAPGoals();
+    [LabelText("局部状态")] public GOAPStates states = new GOAPStates();
+    [LabelText("全部行为")] public GOAPActions actions = new GOAPActions();
+    [LabelText("计划")] public GOAPPlan plan = new GOAPPlan();
 
     public IGOAPOwner owner { get; private set; }
     public void Init(IGOAPOwner owner)

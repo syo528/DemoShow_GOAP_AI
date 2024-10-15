@@ -2392,6 +2392,7 @@ GameObject:
   - component: {fileID: 9049535071285561970}
   - component: {fileID: 3137141346822898533}
   - component: {fileID: 7503143248780385857}
+  - component: {fileID: 1962237183056038618}
   m_Layer: 0
   m_Name: Role
   m_TagString: Untagged
@@ -2472,6 +2473,123 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826702da97a5a98439834c16dfb8c889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 9049535071285561970}
+  navMeshAgent: {fileID: 3137141346822898533}
+  hpDownSpeed: 1
+  goapAgent: {fileID: 1962237183056038618}
+--- !u!114 &1962237183056038618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179056419624091301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4a7ab007357a64d886092e41545367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: goals
+      Entry: 7
+      Data: 0|GOAPGoals, Assembly-CSharp
+    - Name: dic
+      Entry: 7
+      Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[GOAPGoals+Goal,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 2|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: states
+      Entry: 7
+      Data: 3|GOAPStates, Assembly-CSharp
+    - Name: stateDic
+      Entry: 7
+      Data: 4|System.Collections.Generic.Dictionary`2[[GOAPStateType, Assembly-CSharp],[GOAPStateBase,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 5|System.Collections.Generic.EnumEqualityComparer`1[[GOAPStateType, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: actions
+      Entry: 7
+      Data: 6|GOAPActions, Assembly-CSharp
+    - Name: actions
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[GOAPActionBase, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: plan
+      Entry: 7
+      Data: 8|GOAPPlan, Assembly-CSharp
+    - Name: startNode
+      Entry: 6
+      Data: 
+    - Name: runingNode
+      Entry: 6
+      Data: 
+    - Name: goalName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &3268226417841848463
 GameObject:
   m_ObjectHideFlags: 0
