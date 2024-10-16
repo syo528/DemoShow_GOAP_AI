@@ -17,7 +17,23 @@ public struct GOAPStateType
 #if UNITY_EDITOR
     private List<string> GetAllState()
     {
-        return new List<string> { "AB", "CD" };
+        List<string> res = new List<string>();
+        GOAPGlobal global = GOAPEditorUtility.global;
+        if (global != null && global.GlobalStates != null && global.GlobalStates.stateDic != null)
+        {
+            foreach (KeyValuePair<string, GOAPStateBase> item in global.GlobalStates.stateDic)
+            {
+                res.Add(item.Key);
+            }
+        }
+        if (GOAPEditorUtility.agent != null && GOAPEditorUtility.agent.states != null && GOAPEditorUtility.agent.states.stateDic != null)
+        {
+            foreach (KeyValuePair<string, GOAPStateBase> item in GOAPEditorUtility.agent.states.stateDic)
+            {
+                res.Add(item.Key);
+            }
+        }
+        return res;
     }
 #endif
     #endregion
