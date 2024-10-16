@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class GOAPStates
 {
-    public Dictionary<GOAPStateType, GOAPStateBase> stateDic = new Dictionary<GOAPStateType, GOAPStateBase>();
+    public Dictionary<string, GOAPStateBase> stateDic = new Dictionary<string, GOAPStateBase>();
     public bool TryAddState(GOAPStateType type, GOAPStateBase state)
     {
         return stateDic.TryAdd(type, state);
@@ -59,8 +59,8 @@ public class GOAPStates
     [Button]
     private void CheckStates()
     {
-        List<GOAPStateType> createTypeList = new List<GOAPStateType>();
-        foreach (KeyValuePair<GOAPStateType, GOAPStateBase> item in stateDic)
+        List<string> createTypeList = new List<string>();
+        foreach (KeyValuePair<string, GOAPStateBase> item in stateDic)
         {
             // 类型错误
             if (item.Value == null || item.Value.GetType() != GOAPGlobalConfig.GetStateValueType(item.Key))
@@ -68,7 +68,7 @@ public class GOAPStates
                 createTypeList.Add(item.Key);
             }
         }
-        foreach (GOAPStateType item in createTypeList)
+        foreach (string item in createTypeList)
         {
             stateDic[item] = GOAPGlobalConfig.CopyState(item);
         }
