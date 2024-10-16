@@ -63,9 +63,9 @@ public abstract class GOAPActionBase
         for (int i = 0; i < effects.Count; i++)
         {
             GOAPTypeAndComparer effect = effects[i];
-            if (GOAPGlobalConfig.IsGlobalState(effect.stateType))
+            if (GOAPGlobal.instance.TryGetGlobalState(effect.stateType, out GOAPStateBase state))
             {
-                GOAPGlobal.instance.GlobalStates.ApplyEffect(effect);
+                state.ApplyEffect(effect.stateComparer);
             }
             else
             {
@@ -79,6 +79,21 @@ public abstract class GOAPActionBase
 }
 public class GOAPTypeAndComparer
 {
-    public GOAPStateType stateType;
+    [OnValueChanged("CheckState")] public GOAPStateType stateType;
     public GOAPStateComparer stateComparer;
+#if UNITY_EDITOR
+    public void CheckState()
+    {
+        if (GOAPEditorUtility.global != null && GOAPEditorUtility.global.TryGetGlobalState(stateType, out GOAPStateBase state)
+            && (stateComparer == null || stateComparer.GetType() != state.GetGetComparerType()))
+        {
+            stateComparer = state.GetComparer();
+        }
+        else if (GOAPEditorUtility.agent != null && GOAPEditorUtility.agent.states.TryGetState(stateType, out state)
+                 && (stateComparer == null || stateComparer.GetType() != state.GetGetComparerType()))
+        {
+            stateComparer = state.GetComparer();
+        }
+    }
+#endif
 }

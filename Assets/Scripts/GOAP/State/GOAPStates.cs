@@ -1,5 +1,4 @@
-﻿using Sirenix.OdinInspector;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 public class GOAPStates
 {
@@ -18,18 +17,25 @@ public class GOAPStates
     {
         return (T)stateDic[type];
     }
+
+    public bool TryGetState(GOAPStateType type, out GOAPStateBase state)
+    {
+        state = default;
+        if (stateDic == null || type.name == null) return false;
+        return stateDic.TryGetValue(type, out state);
+    }
+
     public bool TryGetState<T>(GOAPStateType type, out T state) where T : GOAPStateBase
     {
+        state = default;
+        if (stateDic == null) return false;
+
         if (stateDic.TryGetValue(type, out GOAPStateBase tempState))
         {
             state = (T)tempState;
             return true;
         }
-        else
-        {
-            state = default;
-            return false;
-        }
+        else return false;
     }
     public bool CheckStateForPrecondition(GOAPStateType type, GOAPStateComparer comparer)
     {
@@ -54,24 +60,4 @@ public class GOAPStates
             value.ApplyEffect(effect.stateComparer);
         }
     }
-
-#if UNITY_EDITOR
-    [Button]
-    private void CheckStates()
-    {
-        List<string> createTypeList = new List<string>();
-        foreach (KeyValuePair<string, GOAPStateBase> item in stateDic)
-        {
-            // 类型错误
-            if (item.Value == null || item.Value.GetType() != GOAPGlobalConfig.GetStateValueType(item.Key))
-            {
-                createTypeList.Add(item.Key);
-            }
-        }
-        foreach (string item in createTypeList)
-        {
-            stateDic[item] = GOAPGlobalConfig.CopyState(item);
-        }
-    }
-#endif
 }

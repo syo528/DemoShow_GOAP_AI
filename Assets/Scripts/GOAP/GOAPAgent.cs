@@ -69,9 +69,9 @@ public class GOAPAgent : SerializedMonoBehaviour
 
     public bool CheckStateForPrecondition(GOAPStateType stateType, GOAPStateComparer stateComparer)
     {
-        if (GOAPGlobalConfig.IsGlobalState(stateType))
+        if (GOAPGlobal.instance.TryGetGlobalState(stateType, out GOAPStateBase state))
         {
-            return GOAPGlobal.instance.GlobalStates.CheckStateForPrecondition(stateType, stateComparer);
+            return state.CompreForPrecondition(stateComparer);
         }
         else
         {
@@ -81,9 +81,9 @@ public class GOAPAgent : SerializedMonoBehaviour
 
     public bool CheckStateForEffect(GOAPStateType stateType, GOAPStateComparer stateComparer)
     {
-        if (GOAPGlobalConfig.IsGlobalState(stateType))
+        if (GOAPGlobal.instance.TryGetGlobalState(stateType, out GOAPStateBase state))
         {
-            return GOAPGlobal.instance.GlobalStates.CheckStateForEffect(stateType, stateComparer);
+            return state.CompreForEffect(stateComparer);
         }
         else
         {

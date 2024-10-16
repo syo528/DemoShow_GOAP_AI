@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-
+﻿using Sirenix.OdinInspector;
+using System.Collections.Generic;
 public class GOAPActions
 {
     public List<GOAPActionBase> actions = new List<GOAPActionBase>();
@@ -27,4 +27,21 @@ public class GOAPActions
         }
         actions.Add(action);
     }
+#if UNITY_EDITOR
+    [Button("检查所有行为状态类型")]
+    public void CheckAllActionState()
+    {
+        foreach (GOAPActionBase item in actions)
+        {
+            foreach (GOAPTypeAndComparer pre in item.preconditions)
+            {
+                pre.CheckState();
+            }
+            foreach (GOAPTypeAndComparer effect in item.effects)
+            {
+                effect.CheckState();
+            }
+        }
+    }
+#endif
 }

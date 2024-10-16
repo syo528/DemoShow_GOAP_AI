@@ -7,9 +7,14 @@ public class GOAPGlobal : SerializedMonoBehaviour
     {
         instance = this;
     }
-    [SerializeField] private GOAPGlobalConfig config;
-    public GOAPGlobalConfig Config => config;
 
     [SerializeField] private GOAPStates globalStates;
     public GOAPStates GlobalStates => globalStates;
+
+    public bool TryGetGlobalState(string targetState, out GOAPStateBase state)
+    {
+        state = default;
+        if (globalStates == null || globalStates.stateDic == null) return false;
+        return globalStates.TryGetState(targetState, out state);
+    }
 }

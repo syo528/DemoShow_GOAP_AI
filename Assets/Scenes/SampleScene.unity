@@ -185,10 +185,10 @@ MonoBehaviour:
       Data: "\u5168\u5458\u72B6\u6001"
     - Name: $v
       Entry: 7
-      Data: 3|FloatState, Assembly-CSharp
+      Data: 3|UnityObjectState, Assembly-CSharp
     - Name: value
-      Entry: 4
-      Data: 0
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -204,7 +204,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  config: {fileID: 11400000, guid: 91156a2d30065a848910731aa273432e, type: 2}
 --- !u!4 &331802886
 Transform:
   m_ObjectHideFlags: 0
@@ -314,460 +313,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &881714712
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 881714715}
-  - component: {fileID: 881714714}
-  - component: {fileID: 881714713}
-  m_Layer: 0
-  m_Name: Test2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &881714713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881714712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70fd63b5b5511424b8c9c5ad9cd6469b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 881714714}
---- !u!114 &881714714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881714712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e4a7ab007357a64d886092e41545367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: goals
-      Entry: 7
-      Data: 0|GOAPGoals, Assembly-CSharp
-    - Name: dic
-      Entry: 7
-      Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[GOAPGoals+Goal,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 2|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: "\u751F\u547D\u503C\u4E0A\u5347"
-    - Name: $v
-      Entry: 7
-      Data: 3|GOAPGoals+Goal, Assembly-CSharp
-    - Name: targetState
-      Entry: 7
-      Data: GOAPStateType, Assembly-CSharp
-    - Name: name
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: targetValue
-      Entry: 7
-      Data: 4|FloastStateComparer, Assembly-CSharp
-    - Name: symbol
-      Entry: 3
-      Data: 4
-    - Name: value
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: priorityMultiply
-      Entry: 4
-      Data: 1
-    - Name: runtimePiority
-      Entry: 4
-      Data: 0
-    - Name: canBreak
-      Entry: 5
-      Data: true
-    - Name: canBeBreak
-      Entry: 5
-      Data: true
-    - Name: checker
-      Entry: 7
-      Data: 5|TestHPGoalChecker, Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: "\u4F11\u606F"
-    - Name: $v
-      Entry: 7
-      Data: 6|GOAPGoals+Goal, Assembly-CSharp
-    - Name: targetState
-      Entry: 7
-      Data: GOAPStateType, Assembly-CSharp
-    - Name: name
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: targetValue
-      Entry: 7
-      Data: 7|BoolStateComparer, Assembly-CSharp
-    - Name: value
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: priorityMultiply
-      Entry: 4
-      Data: 1
-    - Name: runtimePiority
-      Entry: 4
-      Data: 3
-    - Name: canBreak
-      Entry: 5
-      Data: true
-    - Name: canBeBreak
-      Entry: 5
-      Data: true
-    - Name: checker
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: states
-      Entry: 7
-      Data: 8|GOAPStates, Assembly-CSharp
-    - Name: stateDic
-      Entry: 7
-      Data: 9|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[GOAPStateBase,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 10|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: mp
-    - Name: $v
-      Entry: 7
-      Data: 11|FloatState, Assembly-CSharp
-    - Name: value
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Rest
-    - Name: $v
-      Entry: 7
-      Data: 12|BoolState, Assembly-CSharp
-    - Name: value
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: actions
-      Entry: 7
-      Data: 13|GOAPActions, Assembly-CSharp
-    - Name: actions
-      Entry: 7
-      Data: 14|System.Collections.Generic.List`1[[GOAPActionBase, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 15|TestAction, Assembly-CSharp
-    - Name: preconditions
-      Entry: 7
-      Data: 16|System.Collections.Generic.List`1[[GOAPTypeAndComparer, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 17|GOAPTypeAndComparer, Assembly-CSharp
-    - Name: stateType
-      Entry: 7
-      Data: GOAPStateType, Assembly-CSharp
-    - Name: name
-      Entry: 1
-      Data: mp
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: stateComparer
-      Entry: 7
-      Data: 18|BoolStateComparer, Assembly-CSharp
-    - Name: value
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: effects
-      Entry: 7
-      Data: 19|System.Collections.Generic.List`1[[GOAPTypeAndComparer, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 20|GOAPTypeAndComparer, Assembly-CSharp
-    - Name: stateType
-      Entry: 7
-      Data: GOAPStateType, Assembly-CSharp
-    - Name: name
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: stateComparer
-      Entry: 7
-      Data: 21|FloastStateComparer, Assembly-CSharp
-    - Name: symbol
-      Entry: 3
-      Data: 4
-    - Name: value
-      Entry: 4
-      Data: 10
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: costValue
-      Entry: 4
-      Data: 0
-    - Name: effectValue
-      Entry: 4
-      Data: 20
-    - Name: time
-      Entry: 4
-      Data: 0
-    - Name: timer
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 22|TestAction, Assembly-CSharp
-    - Name: preconditions
-      Entry: 7
-      Data: 23|System.Collections.Generic.List`1[[GOAPTypeAndComparer, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: effects
-      Entry: 7
-      Data: 24|System.Collections.Generic.List`1[[GOAPTypeAndComparer, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 25|GOAPTypeAndComparer, Assembly-CSharp
-    - Name: stateType
-      Entry: 7
-      Data: GOAPStateType, Assembly-CSharp
-    - Name: name
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: stateComparer
-      Entry: 7
-      Data: 26|BoolStateComparer, Assembly-CSharp
-    - Name: value
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: costValue
-      Entry: 4
-      Data: 1
-    - Name: effectValue
-      Entry: 4
-      Data: 1
-    - Name: time
-      Entry: 4
-      Data: 5
-    - Name: timer
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: plan
-      Entry: 7
-      Data: 27|GOAPPlan, Assembly-CSharp
-    - Name: startNode
-      Entry: 6
-      Data: 
-    - Name: runingNode
-      Entry: 6
-      Data: 
-    - Name: goalName
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
---- !u!4 &881714715
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881714712}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,8 +489,8 @@ MonoBehaviour:
       Entry: 7
       Data: GOAPStateType, Assembly-CSharp
     - Name: name
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: HP
     - Name: 
       Entry: 8
       Data: 
@@ -954,7 +499,7 @@ MonoBehaviour:
       Data: 4|FloastStateComparer, Assembly-CSharp
     - Name: symbol
       Entry: 3
-      Data: 4
+      Data: 0
     - Name: value
       Entry: 4
       Data: 0
@@ -998,17 +543,20 @@ MonoBehaviour:
       Entry: 7
       Data: GOAPStateType, Assembly-CSharp
     - Name: name
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: "\u5168\u5458\u72B6\u6001"
     - Name: 
       Entry: 8
       Data: 
     - Name: targetValue
       Entry: 7
-      Data: 7|BoolStateComparer, Assembly-CSharp
-    - Name: value
+      Data: 7|UnityObjectStateComparer, Assembly-CSharp
+    - Name: symbol
       Entry: 3
       Data: 0
+    - Name: value
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -1132,16 +680,19 @@ MonoBehaviour:
       Data: GOAPStateType, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: HP
+      Data: "\u5168\u5458\u72B6\u6001"
     - Name: 
       Entry: 8
       Data: 
     - Name: stateComparer
       Entry: 7
-      Data: 18|BoolStateComparer, Assembly-CSharp
-    - Name: value
+      Data: 18|UnityObjectStateComparer, Assembly-CSharp
+    - Name: symbol
       Entry: 3
-      Data: 0
+      Data: 1
+    - Name: value
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -1168,20 +719,17 @@ MonoBehaviour:
       Entry: 7
       Data: GOAPStateType, Assembly-CSharp
     - Name: name
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: Rest
     - Name: 
       Entry: 8
       Data: 
     - Name: stateComparer
       Entry: 7
-      Data: 21|FloastStateComparer, Assembly-CSharp
-    - Name: symbol
-      Entry: 3
-      Data: 4
+      Data: 21|BoolStateComparer, Assembly-CSharp
     - Name: value
-      Entry: 4
-      Data: 10
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1239,17 +787,20 @@ MonoBehaviour:
       Entry: 7
       Data: GOAPStateType, Assembly-CSharp
     - Name: name
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: "\u5168\u5458\u72B6\u6001"
     - Name: 
       Entry: 8
       Data: 
     - Name: stateComparer
       Entry: 7
-      Data: 26|BoolStateComparer, Assembly-CSharp
-    - Name: value
+      Data: 26|UnityObjectStateComparer, Assembly-CSharp
+    - Name: symbol
       Entry: 3
       Data: 0
+    - Name: value
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -1321,5 +872,4 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1490668447}
-  - {fileID: 881714715}
   - {fileID: 331802886}
