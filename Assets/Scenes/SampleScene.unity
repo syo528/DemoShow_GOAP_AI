@@ -499,7 +499,7 @@ MonoBehaviour:
       Data: 4|FloastStateComparer, Assembly-CSharp
     - Name: symbol
       Entry: 3
-      Data: 0
+      Data: 4
     - Name: value
       Entry: 4
       Data: 0
@@ -544,19 +544,16 @@ MonoBehaviour:
       Data: GOAPStateType, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: "\u5168\u5458\u72B6\u6001"
+      Data: Rest
     - Name: 
       Entry: 8
       Data: 
     - Name: targetValue
       Entry: 7
-      Data: 7|UnityObjectStateComparer, Assembly-CSharp
-    - Name: symbol
+      Data: 7|BoolStateComparer, Assembly-CSharp
+    - Name: value
       Entry: 3
       Data: 0
-    - Name: value
-      Entry: 6
-      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -680,19 +677,16 @@ MonoBehaviour:
       Data: GOAPStateType, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: "\u5168\u5458\u72B6\u6001"
+      Data: Rest
     - Name: 
       Entry: 8
       Data: 
     - Name: stateComparer
       Entry: 7
-      Data: 18|UnityObjectStateComparer, Assembly-CSharp
-    - Name: symbol
-      Entry: 3
-      Data: 1
+      Data: 18|BoolStateComparer, Assembly-CSharp
     - Name: value
-      Entry: 6
-      Data: 
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -720,15 +714,18 @@ MonoBehaviour:
       Data: GOAPStateType, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: Rest
+      Data: HP
     - Name: 
       Entry: 8
       Data: 
     - Name: stateComparer
       Entry: 7
-      Data: 21|BoolStateComparer, Assembly-CSharp
-    - Name: value
+      Data: 21|FloastStateComparer, Assembly-CSharp
+    - Name: symbol
       Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 4
       Data: 0
     - Name: 
       Entry: 8
@@ -750,10 +747,10 @@ MonoBehaviour:
       Data: 20
     - Name: time
       Entry: 4
-      Data: 0
+      Data: 5
     - Name: timer
       Entry: 4
-      Data: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -788,19 +785,16 @@ MonoBehaviour:
       Data: GOAPStateType, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: "\u5168\u5458\u72B6\u6001"
+      Data: Rest
     - Name: 
       Entry: 8
       Data: 
     - Name: stateComparer
       Entry: 7
-      Data: 26|UnityObjectStateComparer, Assembly-CSharp
-    - Name: symbol
+      Data: 26|BoolStateComparer, Assembly-CSharp
+    - Name: value
       Entry: 3
       Data: 0
-    - Name: value
-      Entry: 6
-      Data: 
     - Name: 
       Entry: 8
       Data: 
