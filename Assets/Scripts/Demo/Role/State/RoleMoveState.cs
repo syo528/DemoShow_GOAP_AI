@@ -21,7 +21,7 @@ public class RoleMoveState : RoleStateBase
     }
     public override void OnUpdate()
     {
-        if (!role.navMeshAgent.isStopped && role.navMeshAgent.remainingDistance < stopDistance)
+        if (!role.navMeshAgent.isStopped && !role.navMeshAgent.pathPending && role.navMeshAgent.remainingDistance < stopDistance)
         {
             onEnd?.Invoke();
             onEnd = null;

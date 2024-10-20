@@ -608,7 +608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8708681592851256113, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.4
+      value: -12.65
       objectReference: {fileID: 0}
     - target: {fileID: 8708681592851256113, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
       propertyPath: m_LocalRotation.w
@@ -971,6 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488529e5e0e4de447b4f93bbdc5ea0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CampfirePoint: {fileID: 1381124679}
   currentCircleNum: 2
   cellSize: 2
   berryRoot: {fileID: 2056503290}

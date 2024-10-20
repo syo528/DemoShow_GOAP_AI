@@ -10,6 +10,8 @@ public class RoleController : MonoBehaviour, IStateMachineOwner, IGOAPOwner
     public GOAPAgent goapAgent;
     public StateMachine stateMachine;
     private FloatState hpState;
+    public const float maxHP = 100;
+    public const float foodEffect = 30;
     private void Start()
     {
         stateMachine = new StateMachine();

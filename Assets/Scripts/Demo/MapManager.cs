@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapManager : MonoBehaviour
 {
     public static MapManager Instance;
+    public Transform CampfirePoint;
     public Stack<Vector2Int> backupCells = new Stack<Vector2Int>(); // 放置物品的备用格子
     public int currentCircleNum = 2;    // 圈数
     public float cellSize = 2f;
@@ -144,6 +145,7 @@ public class MapManager : MonoBehaviour
 
 
     private float spawnRoleTimer;
+
     private void UpdateSpawnRole()
     {
         if (roleCount >= maxRoleCount) return;
