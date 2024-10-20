@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class RoleController : MonoBehaviour, IStateMachineOwner, IGOAPOwner
@@ -8,13 +9,35 @@ public class RoleController : MonoBehaviour, IStateMachineOwner, IGOAPOwner
     public float hpDownSpeed = 1;
     public GOAPAgent goapAgent;
     public StateMachine stateMachine;
-
+    private FloatState hpState;
     private void Start()
     {
         stateMachine = new StateMachine();
         stateMachine.Init(this);
         goapAgent.Init(this);
         stateMachine.ChangeState<RoleIdleState>();
+        hpState = goapAgent.states.GetState<FloatState>("饥饿值");
+    }
+
+    private void Update()
+    {
+        hpState.SetValue(hpState.value - Time.deltaTime * hpDownSpeed);
+        if (hpState.value <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            goapAgent.OnUpdate();
+            stateMachine.OnUpdate();
+        }
+    }
+
+    private void Die()
+    {
+        stateMachine.Stop();
+        Destroy(gameObject);
+        MapManager.Instance.OnRoleDie();
     }
 
     public void PlayAniamtion(string animationName)

@@ -233,15 +233,54 @@ MonoBehaviour:
       Data: 0|GOAPStates, Assembly-CSharp
     - Name: stateDic
       Entry: 7
-      Data: 1|System.Collections.Generic.Dictionary`2[[GOAPStateType, Assembly-CSharp],[GOAPStateBase,
+      Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[GOAPStateBase,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 2|System.Collections.Generic.EnumEqualityComparer`1[[GOAPStateType, Assembly-CSharp]],
-        mscorlib
+      Data: 2|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u6210\u719F\u6D46\u679C\u7684\u6570\u91CF"
+    - Name: $v
+      Entry: 7
+      Data: 3|IntState, Assembly-CSharp
+    - Name: value
+      Entry: 3
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u50A8\u5907\u98DF\u7269\u7684\u6570\u91CF"
+    - Name: $v
+      Entry: 7
+      Data: 4|IntState, Assembly-CSharp
+    - Name: value
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -249,18 +288,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  config: {fileID: 11400000, guid: 91156a2d30065a848910731aa273432e, type: 2}
 --- !u!4 &331802886
 Transform:
   m_ObjectHideFlags: 0
@@ -946,8 +975,8 @@ MonoBehaviour:
   cellSize: 2
   berryRoot: {fileID: 2056503290}
   berryPrefab: {fileID: 4113686264459071328, guid: d7ba84453e54fa64f9d1c22aa3a225c3, type: 3}
-  rolePrefab: {fileID: 0}
-  roleRoot: {fileID: 8708681592851256113, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
+  rolePrefab: {fileID: 3179056419624091301, guid: 31238c1cd8b0692409f1fdd979f44dea, type: 3}
+  roleRoot: {fileID: 1192289351}
   maxRoleCount: 10
   spawnRoleInterval: 3
 --- !u!114 &1303868159

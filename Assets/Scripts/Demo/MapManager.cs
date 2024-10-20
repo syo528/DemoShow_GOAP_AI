@@ -12,6 +12,12 @@ public class MapManager : MonoBehaviour
     {
         Instance = this;
     }
+    private void Start()
+    {
+        ReserveFoodCount = 10;
+        RoleCount = 0;
+        UIManager.Instance.SetRipeBerryCount(ripeBerryCount);
+    }
     private void Update()
     {
         UpdateSpawnRole();
@@ -77,7 +83,7 @@ public class MapManager : MonoBehaviour
         if (ripeBerries.Add(berryController))
         {
             UIManager.Instance.SetRipeBerryCount(ripeBerryCount);
-            // TODO:同步给GOAP
+            GOAPGlobal.instance.GlobalStates.GetState<IntState>("成熟浆果的数量").SetValue(ripeBerryCount);
         }
     }
 
@@ -86,7 +92,7 @@ public class MapManager : MonoBehaviour
         if (ripeBerries.Remove(berryController))
         {
             UIManager.Instance.SetRipeBerryCount(ripeBerryCount);
-            // TODO:同步给GOAP
+            GOAPGlobal.instance.GlobalStates.GetState<IntState>("成熟浆果的数量").SetValue(ripeBerryCount);
         }
     }
 
@@ -114,7 +120,7 @@ public class MapManager : MonoBehaviour
         {
             reserveFoodCount = value;
             UIManager.Instance.SetReserveFoodCount(reserveFoodCount);
-            // TODO:同步给GOAP
+            GOAPGlobal.instance.GlobalStates.GetState<IntState>("储备食物的数量").SetValue(reserveFoodCount);
         }
     }
     #endregion
@@ -133,7 +139,6 @@ public class MapManager : MonoBehaviour
         {
             roleCount = value;
             UIManager.Instance.SetRoleCount(roleCount);
-            // TODO:同步给GOAP
         }
     }
 

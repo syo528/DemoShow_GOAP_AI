@@ -13,7 +13,7 @@ public class GOAPStates
         return stateDic.Remove(type);
     }
 
-    public T GetStateBase<T>(GOAPStateType type) where T : GOAPStateBase
+    public T GetState<T>(GOAPStateType type) where T : GOAPStateBase
     {
         return (T)stateDic[type];
     }
