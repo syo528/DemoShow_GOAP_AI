@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 public class RoleGrowBerryAction : RoleActionBase
 {
     private Vector2Int berryCoord;
@@ -20,14 +17,12 @@ public class RoleGrowBerryAction : RoleActionBase
     {
         return runState;
     }
-
     private void OnMoveEnd()
     {
         // 2.演出动画
         RolePerformState performState = role.stateMachine.ChangeState<RolePerformState>();
         performState.PlayAnimation("Work", 0.95f, OnPerformEnd);
     }
-
     private void OnPerformEnd()
     {
         // 3.处于成熟浆果边
@@ -36,7 +31,7 @@ public class RoleGrowBerryAction : RoleActionBase
         BerryController berry = MapManager.Instance.SpawnBerry(berryCoord);
         if (berry.IsRipe)
         {
-            ApplyEffect();
+            agent.states.GetState<UnityObjectState>("成熟浆果").SetValue(berry);
         }
     }
 }

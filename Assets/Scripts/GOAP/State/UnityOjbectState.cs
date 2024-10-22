@@ -2,9 +2,14 @@
 {
     public override void ApplyEffect(UnityObjectStateComparer comparer)
     {
-        if (comparer.symbol == BoolValue.是)
+        switch (comparer.symbol)
         {
-            this.value = comparer.value;
+            case UnityObjectSymbol.是:
+                this.value = comparer.value;
+                break;
+            case UnityObjectSymbol.为空:
+                this.value = null;
+                break;
         }
     }
 
@@ -12,12 +17,15 @@
     {
         switch (comparer.symbol)
         {
-            case BoolValue.是:
-                return value == comparer.value;
-            case BoolValue.否:
-                return value != comparer.value;
+            case UnityObjectSymbol.是:
+                return this.value == comparer.value;
+            case UnityObjectSymbol.否:
+                return this.value != comparer.value;
+            case UnityObjectSymbol.为空:
+                return this.value == null;
+            case UnityObjectSymbol.不为空:
+                return this.value != null;
         }
-
         return this.value = comparer.value;
     }
 
@@ -34,17 +42,28 @@
 
 public class UnityObjectStateComparer : GOAPStateComparer<UnityObjectState, UnityObjectStateComparer>
 {
-    public BoolValue symbol;
+    public UnityObjectSymbol symbol;
     public UnityEngine.Object value;
     public override bool EqualsComparer(UnityObjectStateComparer other)
     {
-        switch (other.symbol)
+        if (other.symbol != symbol) return false;
+
+        switch (symbol)
         {
-            case BoolValue.是:
+            case UnityObjectSymbol.是:
+            case UnityObjectSymbol.否:
                 return this.value == other.value;
-            case BoolValue.否:
-                return this.value != other.value;
+            case UnityObjectSymbol.不为空:
+                break;
         }
-        return false;
+        return true;
     }
+}
+
+public enum UnityObjectSymbol
+{
+    是,
+    否,
+    为空,
+    不为空,
 }

@@ -124,6 +124,12 @@ public class MapManager : MonoBehaviour
             GOAPGlobal.instance.GlobalStates.GetState<IntState>("储备食物的数量").SetValue(reserveFoodCount);
         }
     }
+
+    public void AddFood(int count)
+    {
+        ReserveFoodCount += count;
+    }
+
     #endregion
 
     #region 村民
@@ -171,6 +177,7 @@ public class MapManager : MonoBehaviour
     {
         ReserveFoodCount -= 1;
     }
+
 
     #endregion
 }

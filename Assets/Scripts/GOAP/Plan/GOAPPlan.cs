@@ -21,6 +21,8 @@ public class GOAPPlan
     public void Stop()
     {
         RecycleNodes(startNode);
+        runingNode?.Stop();
+        runingNode = null;
         startNode = null;
         runing = false;
         goalName = null;
