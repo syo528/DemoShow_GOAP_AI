@@ -31,7 +31,7 @@ public class GOAPPlanNode
     }
     public void Stop()
     {
-        action.OnStop();
+        action?.OnStop();
     }
 
 }

@@ -14,10 +14,13 @@ public class BerryController : MapObjectBase
         get => isRipe;
         set
         {
+            if (!value)
+            {
+                timer = time;
+            }
             isRipe = value;
             meshRenderer.material = isRipe ? ripeMaterial : noramlMaterial;
-            if (isRipe) MapManager.Instance.OnBerryRipe(this);
-            else MapManager.Instance.RemoveBerryRipe(this);
+            CheckRipeState();
         }
     }
     private void Update()
@@ -39,5 +42,11 @@ public class BerryController : MapObjectBase
     public void OnPick()
     {
         IsRipe = false;
+    }
+
+    public void CheckRipeState()
+    {
+        if (isRipe) MapManager.Instance.OnBerryRipe(this);
+        else MapManager.Instance.RemoveBerryRipe(this);
     }
 }

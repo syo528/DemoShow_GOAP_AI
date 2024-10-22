@@ -2729,7 +2729,7 @@ MonoBehaviour:
       Data: 15|FloatState, Assembly-CSharp
     - Name: value
       Entry: 4
-      Data: 75
+      Data: 45
     - Name: 
       Entry: 8
       Data: 
@@ -2772,7 +2772,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 5
     - Name: 
       Entry: 7
       Data: 19|RoleEatAction, Assembly-CSharp
@@ -2985,6 +2985,190 @@ MonoBehaviour:
       Data: 
     - Name: costValue
       Entry: 4
+      Data: 2
+    - Name: effectValue
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 36|RolePickBerryAction, Assembly-CSharp
+    - Name: preconditions
+      Entry: 7
+      Data: 37|System.Collections.Generic.List`1[[GOAPTypeAndComparer, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 38|GOAPTypeAndComparer, Assembly-CSharp
+    - Name: stateType
+      Entry: 7
+      Data: GOAPStateType, Assembly-CSharp
+    - Name: name
+      Entry: 1
+      Data: "\u6210\u719F\u6D46\u679C"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: stateComparer
+      Entry: 7
+      Data: 39|UnityObjectStateComparer, Assembly-CSharp
+    - Name: symbol
+      Entry: 3
+      Data: 3
+    - Name: value
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: effects
+      Entry: 7
+      Data: 40|System.Collections.Generic.List`1[[GOAPTypeAndComparer, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 41|GOAPTypeAndComparer, Assembly-CSharp
+    - Name: stateType
+      Entry: 7
+      Data: GOAPStateType, Assembly-CSharp
+    - Name: name
+      Entry: 1
+      Data: "\u50A8\u5907\u98DF\u7269\u7684\u6570\u91CF"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: stateComparer
+      Entry: 7
+      Data: 42|IntStateComparer, Assembly-CSharp
+    - Name: symbol
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: costValue
+      Entry: 4
+      Data: 1
+    - Name: effectValue
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 43|RoleMoveToRipeBerryAction, Assembly-CSharp
+    - Name: preconditions
+      Entry: 7
+      Data: 44|System.Collections.Generic.List`1[[GOAPTypeAndComparer, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 45|GOAPTypeAndComparer, Assembly-CSharp
+    - Name: stateType
+      Entry: 7
+      Data: GOAPStateType, Assembly-CSharp
+    - Name: name
+      Entry: 1
+      Data: "\u6210\u719F\u6D46\u679C\u7684\u6570\u91CF"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: stateComparer
+      Entry: 7
+      Data: 46|IntStateComparer, Assembly-CSharp
+    - Name: symbol
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: effects
+      Entry: 7
+      Data: 47|System.Collections.Generic.List`1[[GOAPTypeAndComparer, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 48|GOAPTypeAndComparer, Assembly-CSharp
+    - Name: stateType
+      Entry: 7
+      Data: GOAPStateType, Assembly-CSharp
+    - Name: name
+      Entry: 1
+      Data: "\u6210\u719F\u6D46\u679C"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: stateComparer
+      Entry: 7
+      Data: 49|UnityObjectStateComparer, Assembly-CSharp
+    - Name: symbol
+      Entry: 3
+      Data: 3
+    - Name: value
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: costValue
+      Entry: 4
       Data: 1
     - Name: effectValue
       Entry: 4
@@ -3003,7 +3187,7 @@ MonoBehaviour:
       Data: 
     - Name: plan
       Entry: 7
-      Data: 36|GOAPPlan, Assembly-CSharp
+      Data: 50|GOAPPlan, Assembly-CSharp
     - Name: startNode
       Entry: 6
       Data: 

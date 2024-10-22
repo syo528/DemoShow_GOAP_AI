@@ -22,4 +22,8 @@
         restState.SetValue(false);
         runState = GOAPRunState.Succeed;
     }
+    public override void OnStop()
+    {
+        restState.SetValue(false);
+    }
 }

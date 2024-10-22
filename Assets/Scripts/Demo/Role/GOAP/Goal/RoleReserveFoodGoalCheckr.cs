@@ -11,7 +11,7 @@ public class RoleReserveFoodGoalCheckr : IGOAPGoalChecker
             item.runtimePiority = maxPriority;
             return;
         }
-        float piority = MapManager.Instance.RoleCount / foodCount;
+        float piority = MapManager.Instance.RoleCount / (float)foodCount;
         item.runtimePiority = Mathf.Clamp(piority, 0, maxPriority);
     }
 }
