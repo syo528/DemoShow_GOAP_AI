@@ -23,6 +23,7 @@ public class GOAPPlan
         RecycleNodes(startNode);
         startNode = null;
         runing = false;
+        goalName = null;
     }
 
     private GOAPPlanNode GetDeepestNode(GOAPPlanNode startNode)
