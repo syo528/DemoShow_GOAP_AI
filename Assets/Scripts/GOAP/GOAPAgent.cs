@@ -9,6 +9,8 @@ public class GOAPAgent : SerializedMonoBehaviour
     [LabelText("计划")] public GOAPPlan plan = new GOAPPlan();
 
     public IGOAPOwner owner { get; private set; }
+    
+    //初始化代理 设置目标 状态和行为
     public void Init(IGOAPOwner owner)
     {
         this.owner = owner;
